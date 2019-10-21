@@ -1,0 +1,18 @@
+#set("content") {
+<h1>Add your awesome quote</h1>
+
+<form method="post">
+  <div class="form-group">
+    <label for="short">Quote</label>
+    <input type="text" name="text" class="form-control"
+     id="text"/>
+  </div>
+
+  <button type="submit" class="btn btn-primary">
+    #if(editing){Update} else{Submit}
+  </button>
+</form>
+}
+
+#embed("base")
+
