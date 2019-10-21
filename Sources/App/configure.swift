@@ -1,4 +1,5 @@
 import Vapor
+import Leaf
 import FluentPostgreSQL
 
 /// Called before your application initializes.
@@ -13,6 +14,8 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     // middlewares.use(FileMiddleware.self) // Serves files from `Public/` directory
     middlewares.use(ErrorMiddleware.self) // Catches errors and converts to HTTP response
     services.register(middlewares)
+    
+    try services.register(LeafProvider())
     
     try services.register(FluentPostgreSQLProvider())
     
@@ -55,7 +58,5 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     migrations.add(model: Quote.self, database: .psql)
     services.register(migrations)
     
-
-    
-
+    config.prefer(LeafRenderer.self, for: ViewRenderer.self)
 }

@@ -1,4 +1,4 @@
 module CCryptoOpenSSL {
-    umbrella "/Users/mpantiru/QuotesServices/.build/checkouts/crypto/Sources/CCryptoOpenSSL/include"
+    umbrella "/Users/mpantiru/QuotesServicesAPI/.build/checkouts/crypto/Sources/CCryptoOpenSSL/include"
     export *
 }
